@@ -1,10 +1,14 @@
 public class Employee{
    private Time[][] startTimes;
    private int[][] durations;
-
-   public Employee(Time[][] startTimes, int[][] durations){
+   private String name; 
+   public Employee(Time[][] startTimes, int[][] durations, String name){
       this.startTimes = startTimes;
       this.durations = durations;
+      this.name = name;
+   }
+   public String getName(){
+      return name;
    }
 
 
@@ -48,7 +52,7 @@ public class Employee{
       week[0] = mon;
       int[][] weekdur = new int[1][2];
       weekdur[0] = mondur;
-      Employee e1 = new Employee(week, weekdur);
+      Employee e1 = new Employee(week, weekdur, "e1");
       System.out.println(e1.canWork(new Time(15,00),60, 0) + " false");
       System.out.println(e1.canWork(new Time(15,30),60, 0) + " false");
       System.out.println(e1.canWork(new Time(16,00),60,0) + " true");

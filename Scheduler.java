@@ -3,6 +3,7 @@ public class Scheduler{
    private Time openTime, closeTime;
    private int openDays, shiftLength;
    private Employee[] employee;
+   private String[] schedule;
    /**
     *create a scheduler class and assign the needed variabhles to schedule
     *@param openTime the time when the buisness opens every day
@@ -17,14 +18,16 @@ public class Scheduler{
       this.openDays = openDays;
       this.shiftLength = shiftLength;
       this.employee = employee;
+      this.schedule = new String[openDays];
    }
    /**
     * This stores the employee to the time in the schedule
     * @param employee the employee to be stored
     * @param t the time to schedule the employee at
     */
-   public void schedule(int employee, Time t){
-      //fill in data type here
+   public void schedule(int empl, Time t, int day){
+      schedule[day]+= t + "| " + employee[empl].getName() + "\n";
+      System.out.println(schedule[day]);
    }
 
    /**
@@ -46,16 +49,15 @@ public class Scheduler{
             
             while(!scheduled){
                if(employee[currentEmployee].canWork(currentTime, shiftLength, currentDay)){
-                  schedule(currentEmployee, currentTime);    
+                  schedule(currentEmployee, currentTime, currentDay);    
                   scheduled = true;
                   currentTime.add(shiftLength);
                }else{
                   currentEmployee = (currentEmployee + 1) % employee.length;
                }
             }
-            
-
          }
+         currentDay++;
       }
    }
 }
