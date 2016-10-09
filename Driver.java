@@ -9,6 +9,7 @@ public class Driver{
       Scheduler scheduler = new Scheduler(openTime, closeTime, openDays, shiftLength, empls);
       scheduler.schedule();
       String[] s = scheduler.getSched();
+      //System.out.println("---- " + s[0]);
       for(int i = 0; i < s.length; i++){
          System.out.println(s[i]);
       }

@@ -19,6 +19,9 @@ public class Scheduler{
       this.shiftLength = shiftLength;
       this.employee = employee;
       this.schedule = new String[openDays];
+      for(int i = 0; i < schedule.length; i++){
+         schedule[i] = "";
+      }
    }
    /**
     * This stores the employee to the time in the schedule
@@ -26,6 +29,7 @@ public class Scheduler{
     * @param t the time to schedule the employee at
     */
    public void sched(int empl, Time t, int day){
+      //System.out.println(employee[empl].getName() + " " + t + " " + day);
       schedule[day]+= t + "| " + employee[empl].getName() + "\n";
       //System.out.println(schedule[day]);
    }
@@ -54,11 +58,9 @@ public class Scheduler{
                   sched(currentEmployee, currentTime, currentDay);    
                   scheduled = true;
                   currentTime.add(shiftLength);
-                  System.out.println("d");
                }else{
-                  System.out.println("c");
                   currentEmployee = (currentEmployee + 1) % employee.length;
-                  System.out.println(currentTime);
+                  //System.out.println(currentTime);
                }
             }
          }
