@@ -61,7 +61,7 @@ public class Time{
    public static void main(String[] args){
       Time t = new Time(10,10);
       t.add(10);
-      System.out.println("10h 20m");
+      //System.out.println("10h 20m");
       t.add(20);
       System.out.println("10h 40m");
       t.add(30);

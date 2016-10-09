@@ -25,11 +25,13 @@ public class Scheduler{
     * @param employee the employee to be stored
     * @param t the time to schedule the employee at
     */
-   public void schedule(int empl, Time t, int day){
+   public void sched(int empl, Time t, int day){
       schedule[day]+= t + "| " + employee[empl].getName() + "\n";
-      System.out.println(schedule[day]);
+      //System.out.println(schedule[day]);
    }
-
+   public String[] getSched(){
+      return this.schedule;
+   }
    /**
     * This is the scheduling algorithm. To be expanded upon
     * it currently walks though each day looking for openings and
@@ -37,7 +39,7 @@ public class Scheduler{
     * 
     *
     */
-   public void Schedule(){
+   public void schedule(){
       int currentDay = 0; //0 is monday, 1 is tuesday.. etc
       int currentEmployee = 0;
       //loop through each day scheduling by half hour
@@ -49,11 +51,14 @@ public class Scheduler{
             
             while(!scheduled){
                if(employee[currentEmployee].canWork(currentTime, shiftLength, currentDay)){
-                  schedule(currentEmployee, currentTime, currentDay);    
+                  sched(currentEmployee, currentTime, currentDay);    
                   scheduled = true;
                   currentTime.add(shiftLength);
+                  System.out.println("d");
                }else{
+                  System.out.println("c");
                   currentEmployee = (currentEmployee + 1) % employee.length;
+                  System.out.println(currentTime);
                }
             }
          }

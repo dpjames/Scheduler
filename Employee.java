@@ -28,7 +28,7 @@ public class Employee{
       for(int i = 0; i < emplday.length; i++){
          Time emplEnd = new Time(emplday[i]);
          emplEnd.add(dur[i]);
-         System.out.println(emplday[i] + ">" + t + "--" + emplEnd + ">" + endTime);
+         //System.out.println(emplday[i] + ">" + t + "--" + emplEnd + ">" + endTime);
          //emplday[] -> emplEnd     t -> endTime
          //emplday[] < t && emplEnd>endTime
          if(emplday[i].compareTo(t) <= 0 && (emplEnd.compareTo(endTime) >= 0)){
